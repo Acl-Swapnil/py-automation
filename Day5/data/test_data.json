@@ -1,0 +1,12 @@
+{
+  "login": {
+    "valid_username": "standard_user",
+    "invalid_username": "locked_out_user",
+    "password": "secret_sauce"
+  },
+  "checkout": {
+    "first_name": "Swapnil",
+    "last_name": "K",
+    "postal_code": "12345"
+  }
+}
