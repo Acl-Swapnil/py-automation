@@ -1,0 +1,19 @@
+import json
+import pytest
+
+
+@pytest.fixture(scope="session")
+def test_data():
+    with open("Day7/test_data.json", "r") as f:
+        return json.load(f)
+
+
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args):
+    return {
+        **browser_context_args,
+        "viewport": {
+            "width": 1920,
+            "height": 1080,
+        }
+    }
