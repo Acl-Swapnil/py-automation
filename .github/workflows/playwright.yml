@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -27,11 +27,11 @@ jobs:
       - name: Install browsers
         run: python -m playwright install --with-deps
 
-      - name: Run tests
-        run: pytest Day7/ -v
+      - name: Run tests with HTML Report
+        run: pytest Day7/ -v --reporter=html
 
       - name: Upload Report
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
