@@ -1,4 +1,4 @@
-from login_page import LoginPage
+from pages.login_page import LoginPage
 
 def test_login_success(logged_in_page):
     assert "inventory.html" in logged_in_page.url

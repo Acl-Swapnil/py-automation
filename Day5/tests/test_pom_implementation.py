@@ -1,7 +1,7 @@
 from playwright.sync_api import Page, expect
-from models.login_page import LoginPage
-from models.inventory_page import InventoryPage
-from models.checkout_page import CheckoutPage
+from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
+from pages.checkout_page import CheckoutPage
 
 def test_logic_moved_to_pom(page: Page):
     login_pom = LoginPage(page)

@@ -1,13 +1,13 @@
 import json
 import os
 from playwright.sync_api import Page, expect
-from models.login_page import LoginPage
-from models.inventory_page import InventoryPage
-from models.checkout_page import CheckoutPage
+from pages.login_page import LoginPage
+from pages.inventory_page import InventoryPage
+from pages.checkout_page import CheckoutPage
 
 def test_data_driven_via_json(page: Page):
     current_dir = os.path.dirname(__file__)
-    json_path = os.path.join(current_dir, "data", "test_data.json")
+    json_path = os.path.join(current_dir, "..", "data", "test_data.json")
     
     with open(json_path, "r") as file:
         test_data = json.load(file)

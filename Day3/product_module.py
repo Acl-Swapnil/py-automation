@@ -2,11 +2,11 @@ import json
 
 def load_products():
     try:
-        with open("products.json", "r") as file:
+        with open("data/products.json", "r") as file:
             products = json.load(file)
             return products
     except Exception:
-        print("products.json file not found.")
+        print("data/products.json file not found.")
 
 def display_products(products):
     print("\nAvailable Products:")

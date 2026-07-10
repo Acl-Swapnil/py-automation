@@ -4,7 +4,7 @@ import pytest
 
 @pytest.fixture(scope="session")
 def test_data():
-    with open("Day7/test_data.json", "r") as f:
+    with open("data/test_data.json", "r") as f:
         return json.load(f)
 
 

@@ -1,5 +1,5 @@
 from playwright.sync_api import Page, expect
-from .pages.login_page import LoginPage
+from pages.login_page import LoginPage
 
 
 class TestLogin:

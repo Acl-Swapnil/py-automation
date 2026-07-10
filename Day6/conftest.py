@@ -1,5 +1,5 @@
 import pytest
-from login_page import LoginPage
+from pages.login_page import LoginPage
 
 @pytest.fixture
 def logged_in_page(page):

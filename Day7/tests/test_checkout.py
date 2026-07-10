@@ -1,6 +1,6 @@
 from playwright.sync_api import Page, expect
-from .pages.login_page import LoginPage
-from .pages.checkout_page import CheckoutPage
+from pages.login_page import LoginPage
+from pages.checkout_page import CheckoutPage
 
 
 class TestCheckout:
