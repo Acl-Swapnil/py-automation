@@ -28,23 +28,37 @@ jobs:
       - name: Install browsers
         run: python -m playwright install --with-deps
 
-      - name: Run Day 7 Tests (HTML & Allure)
+      - name: Run Day 7 Tests (HTML & Allure Raw Results)
         run: |
           cd Day7
           python -m pytest tests/ -v --html=report.html --self-contained-html --alluredir=allure-results
 
-      - name: Upload Standard HTML Report
+      - name: Setup Java (Required for Allure CLI)
+        if: always()
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Allure CLI & Compile Interactive Report Dashboard
+        if: always()
+        run: |
+          cd Day7
+          npm install -g allure-commandline --save-dev
+          allure generate allure-results --clean -o allure-report
+
+      - name: Upload Standard HTML Report (Standalone File)
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-html-report
+          name: pytest-html-report
           path: Day7/report.html
           retention-days: 14
 
-      - name: Upload Raw Allure Results
+      - name: Upload Interactive Allure Report (Dashboard Folder)
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: allure-results
-          path: Day7/allure-results
+          name: allure-report-dashboard
+          path: Day7/allure-report
           retention-days: 14
